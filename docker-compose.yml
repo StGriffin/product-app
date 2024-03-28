@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  product-app:
+    image: "product-img"
+    container_name: "cproduct"
+    build: .
+    ports:
+      - "7879:7879"
+    depends_on:
+      - "postgres"
+  postgres:
+    image: "postgres:16.2"
+    container_name: "postgres-product-db"
+    environment:
+      - POSTGRES_USER=product-db
+      - POSTGRES_PASSWORD=unutgitsin
+      - POSTGRES_DB=product-db
+      - POSTGRES_VERSION=16.2
+    volumes:
+      - ../../db-data/product-api:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  data:

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/product-db
+    username : product-db
+    password: unutgitsin
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 7879
